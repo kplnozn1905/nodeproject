@@ -13,7 +13,7 @@ const msg="on1";
 var tempe;
 var humdt;
 var datas;
-
+var i=0;
 app.set('view engine','ejs');
 app.use(express.static('public'));
 
@@ -56,17 +56,17 @@ client.on('message', function (topic, message) {
   user.save();
   
 })
-User.find({title:"temperature"},{publishedAt:1,value:1,_id:0}).sort({ _id: -1 }).limit(5).then(data=>{
-  console.log(data); 
-  datas=data;
-}).catch((err)=>{
-  console.log(err);
-})
+
 
 app.get('/',(req,res)=> {
-
-   
-  res.render('index',{temp:tempe,humd:humdt,data:datas});
+  User.find({title:"temperature"},{publishedAt:1,value:1,_id:0}).sort({ _id: -1 }).limit(5).then(data=>{
+    console.log(data); 
+    datas=data;
+  }).catch((err)=>{
+    console.log(err);
+  })
+    res.render('index',{temp:tempe,humd:humdt,data:datas});
+  
 
 })
 
