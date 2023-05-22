@@ -24,7 +24,7 @@ mongoose.connection.on('error',(err)=>{
   console.log("MongoDB error *XXXXX*",err);
 })
 client.on('connect', function () {
-  mongoose.connect('mongodb://127.0.0.1:27017/tempp',{ useNewUrlParser: true, useUnifiedTopology: true });
+  mongoose.connect('mongodb+srv://kaplan:123456w@cluster1.r6o0vrc.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
 
   client.publish('ledfan', msg);
   client.subscribe('temperature', function (err) {});
