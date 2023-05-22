@@ -18,7 +18,7 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 app.use('/api/User', User);
 
-mongoose.connect('mongodb+srv://kaplann:123456@cluster1.r6o0vrc.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://kaplann:OVmdIOLoUqUeTN9x@cluster1.r6o0vrc.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('open', ()=>{
   console.log("MongoDB Connected!!!");
 });
