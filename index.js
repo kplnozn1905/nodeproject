@@ -18,6 +18,7 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 app.use('/api/User', User);
 
+mongoose.connect('mongodb+srv://kaplann:123456@cluster1.r6o0vrc.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('open', ()=>{
   console.log("MongoDB Connected!!!");
 });
@@ -25,7 +26,7 @@ mongoose.connection.on('error',(err)=>{
   console.log("MongoDB error *XXXXX*",err);
 })
 client.on('connect', function () {
-  mongoose.connect('mongodb+srv://kaplan:123456w@cluster1.r6o0vrc.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
+  
 
   client.publish('ledfan', msg);
   client.subscribe('temperature', function (err) {});
