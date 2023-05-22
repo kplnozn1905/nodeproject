@@ -16,6 +16,7 @@ var datas;
 var i=0;
 app.set('view engine','ejs');
 app.use(express.static('public'));
+app.use('/api/movie', movie);
 
 mongoose.connection.on('open', ()=>{
   console.log("MongoDB Connected!!!");
